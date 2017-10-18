@@ -5,7 +5,7 @@ class Menu extends Component {
     componentDidMount() {
         GroupPropertyService.getGroups()
             .then(groups => {
-                this.setState({groups: groups});
+                this.setState({groups: groups, groupSelected: GroupPropertyService.defaultGroup()});
             });
     }
     render() {
