@@ -88,12 +88,8 @@ async function getGroups() {
 function getGroupProperties(group) {
     return groupPropertyCache[group];
 }
-function defaultGroup() {
-    return 'General Info';
-}
 
 export default {
     getGroups: getGroups,
-    getGroupProperties: getGroupProperties,
-    defaultGroup: defaultGroup
+    getGroupProperties: getGroupProperties
 }
