@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Menu.css';
 import GroupPropertyService from './GroupPropertyService';
 import { Accordion, Panel, ListGroup, ListGroupItem} from 'react-bootstrap';
 
@@ -48,12 +49,10 @@ class Menu extends Component {
             });
         }
         return (
-            <Panel header="FIELD GROUPS">
-                <Accordion>
-                    {panels}
-                </Accordion>
-            </Panel>
-            
+            <div className="menu-panel">
+                <div className="well"><h5>FIELD GROUPS</h5></div>
+                <div className="menu-groups"><Accordion>{panels}</Accordion></div>
+            </div>
         );
     }
   }

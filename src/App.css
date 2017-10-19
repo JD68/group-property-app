@@ -1,8 +1,3 @@
-.app-row {
+.app-row, .app-panel {
   height: 100%
-}
-
-.app-panel {
-  height: 100%;
-  overflow: auto;
 }
