@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import GroupPropertyService from './GroupPropertyService'
+import GroupPropertyService from './GroupPropertyService';
 import { Accordion, Panel, ListGroup, ListGroupItem} from 'react-bootstrap';
 
 class Menu extends Component {
@@ -17,15 +17,15 @@ class Menu extends Component {
     }
 
     handleGroupClick(groupName,e) {
-        let selectedGroup = '', selectedProperty = '', groupProperties = [];
-        //if event target is collapsed then it means we are opening group
-        if(e.target.className === 'collapsed') {
-            selectedGroup = groupName;
-            groupProperties = GroupPropertyService.getGroupProperties(groupName);
-            selectedProperty = groupProperties[0].name;
-        } 
-        this.setState({selectedGroup: selectedGroup, selectedProperty: selectedProperty}, 
-            () => this.props.onGroupChange && this.props.onGroupChange(selectedGroup, selectedProperty, groupProperties));
+        //if event target A and is collapsed then it means we are opening group
+        if(e.target.tagName === 'A' && e.target.className === 'collapsed') {
+            let groupProperties = GroupPropertyService.getGroupProperties(groupName);
+            this.setState({selectedGroup: groupName, selectedProperty: groupProperties[0].name}, 
+                () => this.props.onGroupChange && this.props.onGroupChange(groupName, groupProperties[0].name, groupProperties));
+        } else if (e.target.tagName === 'A') {
+            this.setState({selectedGroup: '', selectedProperty: ''}, 
+                () => this.props.onGroupChange && this.props.onGroupChange('', '', []));
+        }
     }
 
     handlePropertyClick(propertyName) {

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Menu from './Menu';
+import GroupProperties from './GroupProperties';
 
 class App extends Component {  
   constructor(props) {
@@ -33,7 +34,7 @@ class App extends Component {
               <Menu onGroupChange={this.handleGroupChange} onPropertyChange={this.handlePropertyChange}/>
           </div>        
           <div className={rightClassName}>
-              <div>hello</div>
+            <GroupProperties group={this.state && this.state.selectedGroup} property={this.state && this.state.selectedProperty} properties={this.state && this.state.groupProperties} />
           </div>        
         </div>
     );
