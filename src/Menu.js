@@ -17,16 +17,21 @@ class Menu extends Component {
     }
 
     handleGroupClick(groupName,e) {
+        let selectedGroup = '', selectedProperty = '', groupProperties = [];
         //if event target is collapsed then it means we are opening group
         if(e.target.className === 'collapsed') {
-            this.setState({selectedGroup: groupName, selectedProperty: (GroupPropertyService.getGroupProperties(groupName)[0]).name});
-        } else {
-            this.setState({selectedGroup: '', selectedProperty: ''});
-        }
+            selectedGroup = groupName;
+            groupProperties = GroupPropertyService.getGroupProperties(groupName);
+            selectedProperty = groupProperties[0].name;
+        } 
+        this.setState({selectedGroup: selectedGroup, selectedProperty: selectedProperty}, 
+            () => this.props.onGroupChange && this.props.onGroupChange(selectedGroup, selectedProperty, groupProperties));
     }
 
     handlePropertyClick(propertyName) {
-        this.setState({selectedProperty: propertyName});
+        if(propertyName !== this.state.selectedProperty) {
+            this.setState({selectedProperty: propertyName}, () => this.props.onPropertyChange && this.props.onPropertyChange(propertyName));
+        }
     }
 
     render() {
@@ -49,5 +54,5 @@ class Menu extends Component {
         );
     }
   }
-  
+
   export default Menu;
