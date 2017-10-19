@@ -15,12 +15,10 @@ class App extends Component {
   }
 
   handleGroupChange(selectedGroup, selectedProperty, groupProperties) {
-    console.log(arguments);
     this.setState({selectedGroup: selectedGroup, selectedProperty: selectedProperty, groupProperties: groupProperties});
   }
 
   handlePropertyChange(selectedProperty) {
-    console.log(arguments);
     this.setState({selectedProperty: selectedProperty});
   }
 
