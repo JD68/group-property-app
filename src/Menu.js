@@ -15,7 +15,7 @@ class Menu extends Component {
             panels = this.state.groups.map((group, index) => {
                 return  <Panel header={group} key={group} eventKey={index + 1}>
                             <ul>
-                                {GroupPropertyService.getGroupProperties(group).map(property => <li key={group + property.name}>{property.name}</li>)}
+                                {GroupPropertyService.getGroupProperties(group).map(property => <li key={group + property.name}>{property.displayName}</li>)}
                             </ul>
                         </Panel>;
             });
