@@ -24,8 +24,18 @@ class App extends Component {
   }
 
   render() {
+    const rowClassName = 'row app-row'
+    const leftClassName = 'col-xs-4 col-sm-4 col-md-4 col-lg-4 app-panel';
+    const rightClassName = 'col-xs-4 col-sm-4 col-md-8 col-lg-8 app-panel';
     return (
-      <div><Menu onGroupChange={this.handleGroupChange} onPropertyChange={this.handlePropertyChange}/></div>
+        <div className={rowClassName}>
+          <div className={leftClassName}>
+              <Menu onGroupChange={this.handleGroupChange} onPropertyChange={this.handlePropertyChange}/>
+          </div>        
+          <div className={rightClassName}>
+              <div>hello</div>
+          </div>        
+        </div>
     );
   }
 }
