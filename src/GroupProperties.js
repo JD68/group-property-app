@@ -17,7 +17,11 @@ class GroupProperties extends Component {
                 <div>{this.props.property}</div>
                 {
                     this.props.properties.map(property => {
-                        return <Panel header={property.displayName} key={this.props.group + property.name}></Panel>
+                        return <Panel header={property.displayName} key={this.props.group + property.name}>
+                            <div>Type: {property.dataType}</div>
+                            <div>Usage: {property.appKeys.join(',')}</div>
+                            <div>EverTrue Name: {property.name}</div>
+                        </Panel>;
                     })
                 }
             </Panel>);
