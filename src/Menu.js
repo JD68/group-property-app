@@ -48,9 +48,12 @@ class Menu extends Component {
             });
         }
         return (
-            <Accordion>
-                {panels}
-            </Accordion>
+            <Panel header="FIELD GROUPS">
+                <Accordion>
+                    {panels}
+                </Accordion>
+            </Panel>
+            
         );
     }
   }
