@@ -29,7 +29,7 @@ class App extends Component {
     return (
         <div className={rowClassName}>
           <div className={leftClassName}>
-              <Menu onGroupChange={this.handleGroupChange} onPropertyChange={this.handlePropertyChange}/>
+            <Menu onGroupChange={this.handleGroupChange} onPropertyChange={this.handlePropertyChange}/>   
           </div>        
           <div className={rightClassName}>
             <GroupProperties group={this.state && this.state.selectedGroup} property={this.state && this.state.selectedProperty} properties={this.state && this.state.groupProperties} />
