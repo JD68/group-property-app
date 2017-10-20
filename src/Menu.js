@@ -50,7 +50,7 @@ class Menu extends Component {
         }
         return (
             <div className="menu-panel">
-                <div className="well header-well"><h5>FIELD GROUPS</h5></div>
+                <div className="well well-sm header-well"><h3>Field Groups</h3></div>
                 <div className="menu-groups"><Accordion>{panels}</Accordion></div>
             </div>
         );
