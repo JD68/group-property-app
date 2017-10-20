@@ -16,7 +16,7 @@ class GroupProperties extends Component {
         } else {
             return (
                 <div className="group-properties-panel">
-                    <div className="well"><h5>{this.props.group}</h5></div>
+                    <div className="well header-well"><h5>{this.props.group}</h5></div>
                     <div className="group-properties-groups">
                     {
                         this.props.properties.map(property => {

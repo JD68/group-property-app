@@ -7,3 +7,8 @@ body {
   font-family: sans-serif;
   height:100%;
 }
+.header-well {
+  background-color: #337ab7;
+  background-image: linear-gradient(to bottom, #337ab7 0%, #337ab7 100%);
+  color: #ffffff;
+}
