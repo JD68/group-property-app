@@ -1,0 +1,7 @@
+.group-properties-panel {
+    height: 100%;
+}
+.group-properties-groups {
+    height: 100%;
+    overflow: auto;
+}
