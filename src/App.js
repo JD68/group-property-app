@@ -23,15 +23,12 @@ class App extends Component {
   }
 
   render() {
-    const rowClassName = 'row app-row'
-    const leftClassName = 'col-xs-4 col-sm-4 col-md-4 col-lg-4 app-panel';
-    const rightClassName = 'col-xs-4 col-sm-4 col-md-8 col-lg-8 app-panel';
     return (
-        <div className={rowClassName}>
-          <div className={leftClassName}>
+        <div className="row app-row">
+          <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4 app-panel">
             <Menu onGroupChange={this.handleGroupChange} onPropertyChange={this.handlePropertyChange}/>   
           </div>        
-          <div className={rightClassName}>
+          <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8 app-panel">
             <GroupProperties group={this.state && this.state.selectedGroup} property={this.state && this.state.selectedProperty} properties={this.state && this.state.groupProperties} />
           </div>        
         </div>
