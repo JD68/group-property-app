@@ -21,9 +21,24 @@ class GroupProperties extends Component {
                     {
                         this.props.properties.map(property => {
                             return <Panel header={property.displayName} key={this.props.group + property.name}>
-                                <div>Type: {property.dataType}</div>
-                                <div>Usage: {property.appKeys.join(',')}</div>
-                                <div>EverTrue Name: {property.name}</div>
+                                <div className="group-properties-inner-panel">
+                                    <div className="row group-properties-inner-panel-row">
+                                        <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4 group-properties-inner-panel-left">Type</div>
+                                        <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8">{property.dataType}</div>
+                                    </div>
+                                    <div className="row group-properties-inner-panel-content-row">
+                                        <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4 group-properties-inner-panel-left"></div>
+                                        <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8"></div>
+                                    </div>
+                                    <div className="row group-properties-inner-panel-row">
+                                        <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4 group-properties-inner-panel-left">Usage</div>
+                                        <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8">{property.appKeys.join(', ')}</div>
+                                    </div>
+                                    <div className="row group-properties-inner-panel-row">
+                                        <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4 group-properties-inner-panel-left">EverTrue Name</div>
+                                        <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8">{property.name}</div>
+                                    </div>
+                                </div>
                             </Panel>;
                         })
                     }
