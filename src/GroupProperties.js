@@ -3,11 +3,32 @@ import { Panel } from 'react-bootstrap';
 import './GroupProperties.css';
 
 class GroupProperties extends Component {
-    /*constructor(props) {
+    constructor(props) {
         super(props);
-    }*/
+        this.state ={
+            groupChanged: false
+        }
+    }
 
-    componentDidMount() {
+    componentWillReceiveProps(nextProps) {
+        let groupChanged = nextProps.group !== this.props.group;
+        this.setState({groupChanged: groupChanged}, () => {
+            if(!groupChanged) {
+                this.scrollTo(nextProps.property);
+            }
+        });
+    }
+    componentDidUpdate() {
+        if(this.state.groupChanged) {
+            this.scrollTo(this.props.property);
+        }
+    }
+    
+    scrollTo(property) {
+        let elem = document.getElementById(property);
+        if(elem) {
+            elem.scrollIntoView({behavior: "smooth"});
+        }
     }
 
     render() {
@@ -20,7 +41,7 @@ class GroupProperties extends Component {
                     <div className="group-properties-groups">
                     {
                         this.props.properties.map(property => {
-                            return <Panel header={property.displayName} key={this.props.group + property.name}>
+                            return <Panel id={property.name} header={property.displayName} key={this.props.group + property.name}>
                                 <div className="group-properties-inner-panel">
                                     <div className="row group-properties-inner-panel-row">
                                         <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4 group-properties-inner-panel-left">Type</div>
