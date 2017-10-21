@@ -18,6 +18,7 @@ class GroupProperties extends Component {
             }
         });
     }
+    
     componentDidUpdate() {
         if(this.state.groupChanged) {
             this.scrollTo(this.props.property);

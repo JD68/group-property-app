@@ -35,23 +35,29 @@ class Menu extends Component {
         }
     }
 
-    render() {
-        let panels;
-        if(this.state && this.state.groups) {
-            panels = this.state.groups.map((group, index) => {
-                return  <Panel header={group} key={group} eventKey={index + 1} onClick={(e) => this.handleGroupClick(group, e)}>
-                            <ListGroup>
-                                {GroupPropertyService.getGroupProperties(group).map((property, index) => {
-                                    return <ListGroupItem active={property.name === this.state.selectedProperty ? true : undefined} key={group + property.name} onClick={(e) => {e.stopPropagation(); this.handlePropertyClick(property.name)}}>{property.displayName}</ListGroupItem>
-                                })}
-                            </ListGroup>
-                        </Panel>;
-            });
-        }
+    render() {                        
         return (
             <div className="menu-panel">
                 <div className="well well-sm header-well"><h3>Field Groups</h3></div>
-                <div className="menu-groups"><Accordion>{panels}</Accordion></div>
+                <div className="menu-groups">
+                    <Accordion>
+                    {
+                        this.state && this.state.groups 
+                            ?
+                                this.state.groups.map((group, index) => 
+                                    <Panel header={group} key={group} eventKey={index + 1} onClick={(e) => this.handleGroupClick(group, e)}>
+                                        <ListGroup>
+                                            {GroupPropertyService.getGroupProperties(group).map((property, index) => {
+                                                return <ListGroupItem active={property.name === this.state.selectedProperty ? true : undefined} key={group + property.name} onClick={(e) => {e.stopPropagation(); this.handlePropertyClick(property.name)}}>{property.displayName}</ListGroupItem>
+                                            })}
+                                        </ListGroup>
+                                    </Panel>
+                                )
+                            :
+                                []
+                    }
+                    </Accordion>
+                </div>
             </div>
         );
     }
