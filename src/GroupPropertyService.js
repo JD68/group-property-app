@@ -80,7 +80,7 @@ const groupPropertyCache = {
 
 async function loadJson() {
     try {
-        return (await fetch(process.env.PUBLIC_URL + '/schema.json')).json();
+        return (await fetch('/schema.json')).json();
     } catch (e) {
         console.error('fetch schema.json exception:');
     }
