@@ -8,10 +8,7 @@ class App extends Component {
     super(props);
     this.handleGroupChange = this.handleGroupChange.bind(this);
     this.handlePropertyChange = this.handlePropertyChange.bind(this);
-  }
-
-  componentDidMount() {
-    this.setState({selectedGroup: '', selectedProperty: '', groupProperties: []});
+    this.state = {selectedGroup: '', selectedProperty: '', groupProperties: []};
   }
 
   handleGroupChange(selectedGroup, selectedProperty, groupProperties) {
@@ -29,7 +26,10 @@ class App extends Component {
             <Menu onGroupChange={this.handleGroupChange} onPropertyChange={this.handlePropertyChange}/>   
           </div>        
           <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8 app-panel">
-            <GroupProperties group={this.state && this.state.selectedGroup} property={this.state && this.state.selectedProperty} properties={this.state && this.state.groupProperties} />
+            <GroupProperties 
+              group={this.state && this.state.selectedGroup} 
+              property={this.state && this.state.selectedProperty} 
+              properties={this.state && this.state.groupProperties} />
           </div>        
         </div>
     );
