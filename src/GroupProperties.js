@@ -34,7 +34,7 @@ class GroupProperties extends Component {
 
     render() {
         if(!this.props.group) {
-            return (<h1>Please Select A Group</h1>);
+            return (<h1>Please select a group.</h1>);
         } else {
             return (
                 <div className="group-properties-panel">
