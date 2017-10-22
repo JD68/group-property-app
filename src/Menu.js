@@ -39,7 +39,7 @@ class Menu extends Component {
         return (
             <div className="menu-panel">
                 <div className="well well-sm header-well"><h3>Field Groups</h3></div>
-                <div className="menu-groups">
+                <div>
                     <Accordion>
                     {
                         this.state && this.state.groups 

@@ -1,7 +1,4 @@
 .menu-panel {
     height: 100%;
-}
-.menu-groups {
-    height: 100%;
     overflow: auto;
 }

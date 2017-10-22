@@ -39,7 +39,7 @@ class GroupProperties extends Component {
             return (
                 <div className="group-properties-panel">
                     <div className="well well-sm header-well"><h3>{this.props.group}</h3></div>
-                    <div className="group-properties-groups">
+                    <div>
                     {
                         this.props.properties.map(property => {
                             return <Panel id={property.name} header={property.displayName} key={this.props.group + property.name}>
