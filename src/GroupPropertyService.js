@@ -1,3 +1,5 @@
+//Didn't see any display name in schema.json so I added two maps, one for group names and on for property names.
+//Maybe could have just capitalized and remove underscores of the name but some names wouldn't look right, like name_nick or lat.
 const groupDisplayNames = {
     'address': 'Address',
     'education': 'Education',
@@ -74,6 +76,7 @@ const propertyDisplayNames = {
     'phone': 'Phone'
 };
 
+//retrieve schema and transform into needed structure once and cache here
 const groupPropertyCache = {
     'General Info': []
 };
@@ -87,8 +90,12 @@ async function loadJson() {
 }
 
 function transformSchema(schema) {
-    
-   schema.forEach(schemaEntry => {
+
+    /* I noticed some entries in schema.json have a properties object but not a containing object,
+    so I treated these as groups themselves. Reason being one group that falls into this category 
+    is "giving" which in the application image sent with the instructions is shown as it's own group.*/
+
+    schema.forEach(schemaEntry => {
         if(isGeneralProperty(schemaEntry)) {
             groupPropertyCache['General Info'].push(createTransformedEntry(schemaEntry))
         } else if(hasContainingObject(schemaEntry)) {
@@ -104,10 +111,8 @@ function transformSchema(schema) {
         }
     });
 
-    return schema;
-
     function isGeneralProperty(schemaEntry) {
-        return !hasContainingObject(schemaEntry) && !hasPropertiesObject(schemaEntry); //Giving and a few others doesn't have containing object but does have properties object
+        return !hasContainingObject(schemaEntry) && !hasPropertiesObject(schemaEntry);
     }
     function hasContainingObject(schemaEntry) {
         return schemaEntry.hasOwnProperty('containing_object');

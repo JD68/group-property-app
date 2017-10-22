@@ -57,7 +57,7 @@ class GroupProperties extends Component {
                                         <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8">{property.appKeys.join(', ')}</div>
                                     </div>
                                     <div className="row group-properties-inner-panel-row">
-                                        <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4 group-properties-inner-panel-left">EverTrue Name</div>
+                                        <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4 group-properties-inner-panel-left">EverTrue Field Name</div>
                                         <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8">{property.name}</div>
                                     </div>
                                 </div>
