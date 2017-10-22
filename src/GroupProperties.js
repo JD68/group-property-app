@@ -5,14 +5,13 @@ import './GroupProperties.css';
 class GroupProperties extends Component {
     constructor(props) {
         super(props);
-        this.state ={
-            groupChanged: false
-        }
+        this.state ={groupChanged: false};
     }
 
     componentWillReceiveProps(nextProps) {
         let groupChanged = nextProps.group !== this.props.group;
         this.setState({groupChanged: groupChanged}, () => {
+            //if group didn't change, meaning no re-rendering, can scroll to property now
             if(!groupChanged) {
                 this.scrollTo(nextProps.property);
             }
@@ -20,6 +19,7 @@ class GroupProperties extends Component {
     }
     
     componentDidUpdate() {
+        //if component did re-render and group changed then can scroll to property now
         if(this.state.groupChanged) {
             this.scrollTo(this.props.property);
         }
