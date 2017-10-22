@@ -2,13 +2,15 @@
 * npm
 * Node.js
 
-## Available Scripts
+## Running Application
 
-In the project directory, you can run:
+In the project directory run:
 
-### `npm start`
+* npm install
+* npm start
 
-Runs the app.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+npm start runs the app.<br>
+It should open the application in the browser automatically<br>
+but if not, open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 
