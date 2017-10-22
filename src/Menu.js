@@ -18,12 +18,12 @@ class Menu extends Component {
     }
 
     handleGroupClick(groupName,e) {
-        //if event target A and is collapsed then it means we are opening group
+        //if event target A and is collapsed then it means we are opening a group
         if(e.target.tagName === 'A' && e.target.className === 'collapsed') {
             let groupProperties = GroupPropertyService.getGroupProperties(groupName);
             this.setState({selectedGroup: groupName, selectedProperty: groupProperties[0].name}, 
                 () => this.props.onGroupChange && this.props.onGroupChange(groupName, groupProperties[0].name, groupProperties));
-        } else if (e.target.tagName === 'A') {
+        } else if (e.target.tagName === 'A') { //if event target A and not collapsed then it means we are closing the group
             this.setState({selectedGroup: '', selectedProperty: ''}, 
                 () => this.props.onGroupChange && this.props.onGroupChange('', '', []));
         }
@@ -48,7 +48,12 @@ class Menu extends Component {
                                     <Panel header={group} key={group} eventKey={index + 1} onClick={(e) => this.handleGroupClick(group, e)}>
                                         <ListGroup>
                                             {GroupPropertyService.getGroupProperties(group).map((property, index) => {
-                                                return <ListGroupItem active={property.name === this.state.selectedProperty ? true : undefined} key={group + property.name} onClick={(e) => {e.stopPropagation(); this.handlePropertyClick(property.name)}}>{property.displayName}</ListGroupItem>
+                                                return <ListGroupItem 
+                                                        active={property.name === this.state.selectedProperty ? true : undefined} 
+                                                        key={group + property.name} 
+                                                        onClick={(e) => {e.stopPropagation(); this.handlePropertyClick(property.name)}}>
+                                                            {property.displayName}
+                                                       </ListGroupItem>
                                             })}
                                         </ListGroup>
                                     </Panel>
